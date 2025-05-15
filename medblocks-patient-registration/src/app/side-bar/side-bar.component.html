@@ -24,10 +24,30 @@
             </div>
         </div>
     </div>
-    <a class="flex items-center justify-center w-full h-16 mt-auto bg-indigo-800 hover:bg-indigo-700" href="#">
+    <a (mouseenter)="menuTrigger.openMenu()" class="flex items-center justify-center w-full h-16 mt-auto bg-indigo-800 hover:bg-indigo-700" >
         <svg class="w-6 h-6 stroke-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
-        <span class="ml-2 text-sm font-medium">Account</span>
+        <span mat-button [matMenuTriggerFor]="appMenu" ><span class="ml-2 text-sm font-medium">Account</span></span>
+        <mat-menu #appMenu="matMenu" class="flex flex-col justify-center items-center">
+            <div class="p-3">
+                <div class="flex items-center justify-between mb-2">
+                    <a href="#">
+                        <img class="w-10 h-10 rounded-full" [src]="userDetails.photoUrl" alt="Jese Leos">
+                    </a>
+                    <div>
+                        <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-xs px-3 py-1.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Follow</button>
+                    </div>
+                </div>
+                <p class="text-base font-semibold leading-none text-gray-900 dark:text-white">
+                    <a href="#">{{userDetails.name}}</a>
+                </p>
+                <p class="mb-3 text-sm font-normal">
+                    <a class="hover:underline">{{userDetails.email}}</a>
+                </p>
+                
+            </div>
+
+        </mat-menu>
     </a>
 </div>

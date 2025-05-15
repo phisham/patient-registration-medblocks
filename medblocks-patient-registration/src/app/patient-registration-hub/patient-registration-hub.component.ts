@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SocialAuthService, GoogleLoginProvider, SocialUser } from '@abacritt/angularx-social-login';
 
 @Component({
   selector: 'app-patient-registration-hub',
@@ -7,6 +8,7 @@ import { Component } from '@angular/core';
 })
 export class PatientRegistrationHubComponent {
   public searchText!: string;
+  public user!: SocialUser;
   public gridData = [
     {
       id: 1,
@@ -21,7 +23,7 @@ export class PatientRegistrationHubComponent {
       name: "Raj",
       email: "phisham101@gmail.com",
       phone: "1234567889",
-      address: "Abc house, Kozhikode, India",
+      address: "Abc house",
       doctorName: "Deva"
     },
     {

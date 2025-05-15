@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { MatMenuTrigger } from '@angular/material/menu';
+import { IUserDetails } from 'src/shared/common.constants';
 
 @Component({
   selector: 'app-side-bar',
@@ -6,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./side-bar.component.scss']
 })
 export class SideBarComponent {
+  @ViewChild(MatMenuTrigger) menuTrigger!: MatMenuTrigger;
   public currentTab = 1;
+  public userDetails!: IUserDetails;
+
+  ngOnInit(): void{
+    this.userDetails = JSON.parse(localStorage.getItem("userDetails") ?? "");
+  }
 }
