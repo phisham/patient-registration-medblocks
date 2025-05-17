@@ -15,39 +15,46 @@
                     </svg>
                     <span class="ml-2 text-sm font-medium hover:text-gray-400">Dasboard</span>
                 </a>
-                <a class="flex items-center w-full h-12 px-3 mt-2 hover:cursor-pointer hover:text-2xl" [ngClass]="currentTab == 2 ? 'bg-indigo-700 text-indigo-100 rounded' : 'rounded hover:bg-indigo-700 text-gray-400'" (click)="currentTab = 2">
-                    <svg class="w-6 h-6 stroke-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                    <span class="ml-2 text-sm font-medium">Insights</span>
-                </a>
+                
             </div>
         </div>
     </div>
-    <a (mouseenter)="menuTrigger.openMenu()" class="flex items-center justify-center w-full h-16 mt-auto bg-indigo-800 hover:bg-indigo-700" >
-        <svg class="w-6 h-6 stroke-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-        <span mat-button [matMenuTriggerFor]="appMenu" ><span class="ml-2 text-sm font-medium">Account</span></span>
-        <mat-menu #appMenu="matMenu" class="flex flex-col justify-center items-center">
-            <div class="p-3">
-                <div class="flex items-center justify-between mb-2">
-                    <a href="#">
-                        <img class="w-10 h-10 rounded-full" [src]="userDetails.photoUrl" alt="Jese Leos">
-                    </a>
-                    <div>
-                        <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-xs px-3 py-1.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Follow</button>
+    <div class="w-full flex flex-col">
+        <a (mouseenter)="menuTrigger.openMenu()" class="flex items-center justify-center w-full h-16 mt-auto bg-indigo-800 hover:bg-indigo-700" >
+            <svg class="w-6 h-6 stroke-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <ng-container *ngIf="userDetails.userId; else commonUser">
+                <span mat-button [matMenuTriggerFor]="appMenu" ><span class="ml-2 text-sm font-medium">Account</span></span>
+                <mat-menu #appMenu="matMenu" class="flex flex-col justify-center items-center">
+                    <div class="p-3">
+                        <div class="flex items-center justify-between mb-2">
+                            <a href="#">
+                                <img class="w-10 h-10 rounded-full" [src]="userDetails.photoUrl" alt="Jese Leos">
+                            </a>
+                            <div>
+                                <button type="button" class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-xs px-3 py-1.5 dark:bg-red-600 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-red-800" (click)="logout()">Logout</button>
+                            </div>
+                        </div>
+                        <p class="text-base font-semibold leading-none text-gray-900 dark:text-white">
+                            <a href="#">{{userDetails.name}}</a>
+                        </p>
+                        <p class="mb-3 text-sm font-normal">
+                            <a class="hover:underline">{{userDetails.email}}</a>
+                        </p>
+                        
                     </div>
-                </div>
-                <p class="text-base font-semibold leading-none text-gray-900 dark:text-white">
-                    <a href="#">{{userDetails.name}}</a>
-                </p>
-                <p class="mb-3 text-sm font-normal">
-                    <a class="hover:underline">{{userDetails.email}}</a>
-                </p>
-                
-            </div>
-
-        </mat-menu>
-    </a>
+        
+                </mat-menu>
+            </ng-container>
+            <ng-template #commonUser>
+                <span mat-button ><span class="ml-2 text-sm font-medium">Account</span></span>
+            </ng-template>
+            
+        </a>
+        <a class="flex items-center justify-center w-full h-16 mt-auto bg-red-800 hover:bg-red-700 hover:cursor-pointer" >
+            <mat-icon>exit_to_app</mat-icon>
+            <span mat-button (click)="logout()"><span class="ml-2 text-sm font-medium">Logout</span></span>
+        </a>
+    </div>
 </div>

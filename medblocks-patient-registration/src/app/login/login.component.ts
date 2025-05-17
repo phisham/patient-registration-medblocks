@@ -13,6 +13,9 @@ export class LoginComponent {
   constructor(private authService: SocialAuthService, private router: Router) {}
 
   ngOnInit(): void {
+    if(localStorage.getItem("userDetails")){
+      this.router.navigateByUrl("/patient-registration");
+    }
     this.authService.authState.subscribe((user) => {
       let userDetails: IUserDetails = {
         userId: user.id,

@@ -1,0 +1,9 @@
+node_modules
+.angular
+src
+e2e
+.git
+.gitignore
+README.md
+angular.json
+package-lock.json

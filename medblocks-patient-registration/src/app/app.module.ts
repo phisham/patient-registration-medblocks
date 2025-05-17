@@ -6,11 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PatientRegistrationHubComponent } from './patient-registration-hub/patient-registration-hub.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FilterGridPipe } from './filter-grid.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { LoginComponent } from './login/login.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { AddPatientModalComponent } from './add-patient-modal/add-patient-modal.component';
+import { LoaderComponent } from './loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -19,13 +22,17 @@ import { LoginComponent } from './login/login.component';
     SideBarComponent,
     FilterGridPipe,
     LoginComponent,
+    AddPatientModalComponent,
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     MaterialModule,
     SocialLoginModule,
+    MatPaginatorModule,
     GoogleSigninButtonModule,
     BrowserAnimationsModule
   ],
