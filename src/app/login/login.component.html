@@ -1,0 +1,17 @@
+<div class="flex flex-row w-full h-full justify-center">
+    <div class="w-full h-full image"></div>
+    <div class="flex flex-col justify-center items-center p-10 min-w-96 bg-slate-200">
+        <h2>Patient Registration Project</h2>
+        <div class="box flex flex-col justify-around items-center">
+            <img class="w-28 h-28" src="assets/logo.png" alt="">
+            <div class="flex flex-col">
+                <asl-google-signin-button type='standard' size="large" class="w-full mb-2">
+                    (signInSuccess)="onSignInSuccess($event)" 
+                    (signInError)="onSignInError($event)">
+                    Sign In With Google
+                </asl-google-signin-button>
+                <button mat-raised-button class="!bg-black !text-white mt-2" routerLink="/patient-registration" (click)="continueWithoutLogin()"> Continue without signing in</button>
+            </div>
+        </div>
+    </div>
+</div>

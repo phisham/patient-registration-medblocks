@@ -1,0 +1,21 @@
+.height-full{
+    height: 100vh;
+}
+
+.width-full{
+    width: calc(100% - 160px);
+}
+table {
+    width: 100%;
+  background: #eeeeee;
+  padding: 10px;
+  }
+
+  .mat-mdc-row{
+    background-color: #ffff;
+  }
+  
+  .mat-mdc-header-cell{
+    color: rgb(49 46 129 / var(--tw-bg-opacity, 1)) !important;
+    font-weight: 700;
+  }
