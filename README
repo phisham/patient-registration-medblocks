@@ -1,0 +1,17 @@
+Patient Registration project.
+
+#About
+* This is a web app built using Angular 16.
+* PgLite is used for database access in client side 
+* Allows to register new patients, view list of patients created, Filter them etc (Filtering is done by Sql queries run in pglite)
+
+#Extra points included 
+* Added Google OAuth to allow google signin.
+* You could either login through GSuit , Or can Continue without logging in . This enables the user either to enter the portal with/without logging in.
+
+#How to run :
+* npm install --force (use --force to avoid chances of failures due to conficts in you node version and the version I used)
+* ng serve / npm run start
+
+# Hosted in Firebase 
+Link : https://medblocks-patient-registration.web.app
